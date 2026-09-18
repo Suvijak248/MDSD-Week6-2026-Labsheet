@@ -583,13 +583,29 @@ Future<Weather> fetchWeatherWithDio(String city) async {
 > ✅ **Checkpoint 5.2** เปรียบเทียบสั้น ๆ ระหว่าง `http` กับ `dio` อย่างน้อย 3 ประเด็น โดยอ้างอิงจากสิ่งที่สังเกตได้จริงตอนทดลองในขั้นตอนที่ 5.3 เช่น การแปลง JSON อัตโนมัติ, การกำหนด Query Parameters, และรูปแบบการจัดการ Exception (`DioException` เทียบกับการดักจับหลายชนิดแยกกันแบบ `http`)
 
 ```text
-บันทึกคำตอบที่นี่
+- 1. การแปลง JSONต้องเรียกใช้ jsonDecode(response.body) เพื่อแปลงข้อมูลเป็น Map หรือ List ด้วยตนเอง   แปลงข้อมูล JSON เป็น Map หรือ List ให้อัตโนมัติ เข้าถึงผ่าน response.data ได้ทันที   
+- 2. การส่ง Query Parameters	ต้องนำข้อความมาต่อใน URL เอง หรือสร้างผ่านวัตถุ กำหนดผ่านพารามิเตอร์ queryParameters: {...} ในรูปแบบ Map ได้โดยตรง สะดวกและลดข้อผิดพลาด
+- 3. การจัดการ Exception	ต้องแยกดักจับตามคลาสที่เกิดขึ้นต่างกัน เช่น TimeoutException, http.ClientException, FormatException รวมข้อผิดพลาดเกี่ยวกับเครือข่ายทั้งหมดไว้ในคลาส DioException เดียว แล้วแยกแยะสาเหตุผ่าน e.type
 ```
 >
 > ✅ **Checkpoint 5.3** แสดงโค้ดเงื่อนไข `DioExceptionType` เพิ่มเติมที่เขียนเองในขั้นตอนที่ 5.4 
 
 ```text
-บันทึกคำตอบที่นี่
+} on DioException catch (e) {
+  if (e.type == DioExceptionType.connectionTimeout) {
+    throw Exception('การเชื่อมต่อหมดเวลา กรุณาลองใหม่อีกครั้ง');
+  } else if (e.type == DioExceptionType.badResponse) {
+    throw Exception('เซิร์ฟเวอร์ตอบกลับผิดพลาด (${e.response?.statusCode})');
+  } else if (e.type == DioExceptionType.receiveTimeout) {
+    // เพิ่มกรณีรับข้อมูลช้าเกินกำหนด
+    throw Exception('การรับข้อมูลจากเซิร์ฟเวอร์หมดเวลา กรุณาลองใหม่อีกครั้ง');
+  } else if (e.type == DioExceptionType.connectionError) {
+    // เพิ่มกรณีไม่มีอินเทอร์เน็ต หรือเชื่อมต่อเซิร์ฟเวอร์ไม่ได้
+    throw Exception('ไม่สามารถเชื่อมต่อเซิร์ฟเวอร์ได้ กรุณาตรวจสอบการเชื่อมต่ออินเทอร์เน็ต');
+  } else {
+    throw Exception('เกิดข้อผิดพลาด: ${e.message}');
+  }
+}
 ```
 ---
 
