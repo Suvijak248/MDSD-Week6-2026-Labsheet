@@ -194,9 +194,13 @@ void main() {
 
 > ✅ **Checkpoint 2.1** รันไฟล์ทดสอบข้างต้น สังเกตค่าทั้ง 4 ฟิลด์ที่ `print()` ออกมาใน Debug Console ว่าตรงกับ Response Body จริงจาก Postman หรือไม่ ถ่ายภาพหน้าจอ Debug Console ที่แสดงว่าค่าทั้ง 4 ฟิลด์ถูกต้องตรงกับ JSON จริง
 
-```text
-บันทึกรูปที่นี่
-```
+<img width="245" height="73" alt="image" src="https://github.com/user-attachments/assets/67e35820-6214-41ad-8cdf-854a908e3175" />
+<img width="330" height="333" alt="image" src="https://github.com/user-attachments/assets/56eb6f94-4209-4a83-a8ae-6aa31cdadc24" />
+<img width="289" height="458" alt="image" src="https://github.com/user-attachments/assets/0864207f-89de-4c6e-a26b-f85ea20176f9" />
+
+
+
+
 ### ขั้นตอนที่ 2.3 — 🧠 คิดเอง/ออกแบบเอง
 
 สร้างไฟล์ `lib/services/weather_service.dart` แล้วเขียน `WeatherService` ต่อจากตัวอย่างโครงเริ่มต้นด้านล่างนี้  
