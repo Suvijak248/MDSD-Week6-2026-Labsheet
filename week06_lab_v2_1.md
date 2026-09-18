@@ -77,7 +77,8 @@ https://api.openweathermap.org/data/2.5/weather?q=Bangkok&appid=YOUR_API_KEY&uni
 
 > ✅ **Checkpoint 1.1** ถ่ายภาพหน้าจอ Postman ที่แสดง Status Code `200` พร้อม Response Body แบบเต็ม จากนั้นให้เขียนระบุใน ว่า key ใดใน JSON ที่คาดว่าจะต้องใช้แสดงผลในแอป (เช่น ชื่อเมือง, อุณหภูมิ, คำอธิบายสภาพอากาศ)
 
-<img width="969" height="698" alt="image" src="https://github.com/user-attachments/assets/b8cae108-ee51-4392-96aa-8a2e763220c8" />
+<img width="947" height="558" alt="image" src="https://github.com/user-attachments/assets/f477ae60-dffd-47f4-808e-1ef2b2e28f96" />
+<img width="955" height="587" alt="image" src="https://github.com/user-attachments/assets/a073c96d-0465-4b95-a1fc-cbc9294f5910" />
 
 
 ### ขั้นตอนที่ 1.2 — 🧠 คิดเอง/ออกแบบเอง
