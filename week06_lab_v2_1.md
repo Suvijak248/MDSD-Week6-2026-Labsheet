@@ -80,6 +80,16 @@ https://api.openweathermap.org/data/2.5/weather?q=Bangkok&appid=YOUR_API_KEY&uni
 <img width="947" height="558" alt="image" src="https://github.com/user-attachments/assets/f477ae60-dffd-47f4-808e-1ef2b2e28f96" />
 <img width="955" height="587" alt="image" src="https://github.com/user-attachments/assets/a073c96d-0465-4b95-a1fc-cbc9294f5910" />
 
+```text
+- ชื่อเมือง: name (ค่า: "กรุงเทพมหานคร")ชื่อเมือง: name (ค่า: "กรุงเทพมหานคร")
+- คำอธิบายสภาพอากาศ: weather[0].description (ค่า: "ฝนปานกลาง") หรือ weather[0].main (ค่า: "Rain")
+- ไอคอนสภาพอากาศ: weather[0].icon (ค่า: "10d")
+- อุณหภูมิปัจจุบัน: main.temp (ค่า: 30.51)
+- อุณหภูมิที่รู้สึกจริง (Feels Like): main.feels_like (ค่า: 37.51)
+- อุณหภูมิสูงสุด / ต่ำสุด: main.temp_max (31.64) และ main.temp_min (28.84)
+- ความชื้น: main.humidity (ค่า: 77)
+- ความเร็วลม: wind.speed (ค่า: 1.67)
+```
 
 ### ขั้นตอนที่ 1.2 — 🧠 คิดเอง/ออกแบบเอง
 
@@ -87,6 +97,9 @@ https://api.openweathermap.org/data/2.5/weather?q=Bangkok&appid=YOUR_API_KEY&uni
 
 > ✅ **Checkpoint 1.2** บันทึกด้านล่างว่านักศึกษาเลือกทดสอบกรณีใด คาดการณ์ Status Code ไว้ว่าอะไร และ Status Code จริงที่ได้คืออะไร (ตรงหรือไม่ตรงกับที่คาดไว้) พร้อมอธิบายว่าผลลัพธ์ที่ได้ตรงกับช่วง Status Code ใดตามตารางในบทเรียนหัวข้อ 6.3
 
+<img width="953" height="671" alt="image" src="https://github.com/user-attachments/assets/986e42a8-436d-4e86-a600-f8cd2ccb3ff2" />
+
+Status Code 404 จัดอยู่ในช่วง 4xx (Client Error) ซึ่งเป็นกลุ่มรหัสข้อผิดพลาดที่เกิดจากฝั่งผู้ส่ง Request (Client) ตัวเลข 404 หมายถึงเซิร์ฟเวอร์ได้รับ Request แล้ว แต่ไม่พบทรัพยากร (Resource) ตามที่ร้องขอ ซึ่งในกรณีนี้คือระบบ OpenWeatherMap ไม่พบข้อมูลสภาพอากาศของชื่อเมือง Atlantis_9999 ในฐานข้อมูล จึงตอบกลับด้วยรหัส 404 Not Found
 
 ---
 
